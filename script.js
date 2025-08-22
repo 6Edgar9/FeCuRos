@@ -6,7 +6,8 @@ const canciones = [
     'musica/laVieEnRose.mp3',
     'musica/springDay.mp3',
     'musica/HowlsMovingCastleTheme.mp3',
-    'musica/HappyBirthday.mp3'
+    'musica/HappyBirthday.mp3',
+    'musica/musica/Euphoria.mp3'
 ];
 
 function reproducirAutomaticamente() {
