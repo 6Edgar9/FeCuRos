@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -198,6 +197,72 @@ h2 {
     margin-top: 20px;
 }
 
+.seccion-totoro {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.seccion-totoro h2 {
+    background: linear-gradient(135deg, #9B6EE0 0%, #F5AFB0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.contenedor-totoro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.imagen-totoro {
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.canvas-flores {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.susuwatari {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+    opacity: 0.8;
+    animation: flotar 6s infinite ease-in-out;
+}
+
+.susuwatari-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.susuwatari-2 {
+    top: 40%;
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+.susuwatari-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 3s;
+}
+
 .item {
     width: 200px;
     height: 200px;
@@ -221,19 +286,6 @@ h2 {
 .item i {
     font-size: 3rem;
     margin-bottom: 15px;
-}
-
-.bt21 {
-    text-align: center;
-    background: linear-gradient(135deg, #f4eefa 0%, #fce4e5 100%);
-}
-
-.bt21-img {
-    max-width: 300px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .invitacion {
@@ -278,6 +330,15 @@ footer {
     border-radius: 15px;
 }
 
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -289,32 +350,12 @@ footer {
     100% { transform: translateY(0px); }
 }
 
-@keyframes confetiFall {
-    0% { 
-        transform: translateY(-100px) rotate(0deg); 
-        opacity: 1;
-    }
-    100% { 
-        transform: translateY(100vh) rotate(360deg); 
-        opacity: 0;
-    }
-}
-
 .animado {
     animation: fadeIn 1s ease-in;
 }
 
 .flotante {
     animation: float 5s ease-in-out infinite;
-}
-
-.confeti {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    opacity: 0.7;
-    z-index: 0;
-    animation: confetiFall 5s linear infinite;
 }
 
 @media (max-width: 768px) {
@@ -360,6 +401,24 @@ footer {
     .poema {
         padding: 20px;
         font-size: 1rem;
+    }
+    
+    .contenedor-totoro {
+        flex-direction: column;
+    }
+    
+    .imagen-totoro {
+        max-width: 250px;
+    }
+    
+    .canvas-flores {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .susuwatari {
+        width: 35px;
+        height: 35px;
     }
 }
 
