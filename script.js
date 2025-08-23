@@ -136,3 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+//Dios, Assembly y la Patria
+/*Edrem*/
