@@ -1,14 +1,53 @@
 let audioActual = null;
 let cancionActual = null;
 
-const canciones = [
-    'musica/totoro.mp3',
-    'musica/laVieEnRose.mp3',
-    'musica/springDay.mp3',
-    'musica/HowlsMovingCastleTheme.mp3',
-    'musica/HappyBirthday.mp3',
-    'musica/musica/Euphoria.mp3'
-];
+document.addEventListener('DOMContentLoaded', function() {
+    inicializarReproductor();
+    inicializarAnimaciones();
+    inicializarObservadores();
+});
+
+function inicializarReproductor() {
+    reproducirAutomaticamente();
+    
+    document.getElementById('musicToggle').addEventListener('click', function() {
+        document.getElementById('musicList').classList.toggle('show');
+    });
+    
+    document.addEventListener('click', function(event) {
+        const musicMenu = document.querySelector('.music-menu');
+        if (!musicMenu.contains(event.target)) {
+            document.getElementById('musicList').classList.remove('show');
+        }
+    });
+}
+
+function inicializarAnimaciones() {
+    dibujarFlores();
+    
+    window.addEventListener('resize', function() {
+        clearTimeout(this.redibujarTimeout);
+        this.redibujarTimeout = setTimeout(dibujarFlores, 200);
+    });
+}
+
+function inicializarObservadores() {
+    const elementos = document.querySelectorAll('.animado');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    elementos.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transition = 'opacity 0.5s ease-in-out';
+        observer.observe(el);
+    });
+}
 
 function reproducirAutomaticamente() {
     const audioPlayer = document.getElementById('audioPlayer');
@@ -27,17 +66,6 @@ function reproducirAutomaticamente() {
     
     audioActual = audioPlayer;
 }
-
-document.getElementById('musicToggle').addEventListener('click', function() {
-    document.getElementById('musicList').classList.toggle('show');
-});
-
-document.addEventListener('click', function(event) {
-    const musicMenu = document.querySelector('.music-menu');
-    if (!musicMenu.contains(event.target)) {
-        document.getElementById('musicList').classList.remove('show');
-    }
-});
 
 function playSong(ruta, elemento) {
     const audioPlayer = document.getElementById('audioPlayer');
@@ -94,48 +122,98 @@ function mostrarMensajeReproduccion() {
 
 function enviarWhatsApp() {
     const mensaje = "Acepto una salida a comer postres";
-    const url = `https://wa.me/986604448/?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
 
-function crearConfeti() {
-    const colores = ['#D6C6E6', '#F5AFB0', '#9B6EE0', '#85c1e9', '#F5AFB0'];
-    const container = document.body;
+function dibujarFlores() {
+    const canvas = document.getElementById('floresCanvas');
+    if (!canvas.getContext) return;
     
-    for (let i = 0; i < 50; i++) {
-        const confeti = document.createElement('div');
-        confeti.className = 'confeti';
-        confeti.style.left = Math.random() * 100 + 'vw';
-        confeti.style.animationDelay = Math.random() * 5 + 's';
-        confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
-        confeti.style.width = (5 + Math.random() * 10) + 'px';
-        confeti.style.height = (5 + Math.random() * 10) + 'px';
-        confeti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-        confeti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        container.appendChild(confeti);
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    
+    ctx.clearRect(0, 0, width, height);
+    
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, '#87CEEB');
+    gradient.addColorStop(1, '#E0F7FA');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+    
+    ctx.beginPath();
+    ctx.arc(50, 50, 30, 0, Math.PI * 2);
+    ctx.fillStyle = '#FFD700';
+    ctx.fill();
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.beginPath();
+    ctx.arc(100, 80, 20, 0, Math.PI * 2);
+    ctx.arc(130, 70, 25, 0, Math.PI * 2);
+    ctx.arc(160, 80, 20, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.arc(300, 60, 15, 0, Math.PI * 2);
+    ctx.arc(320, 50, 20, 0, Math.PI * 2);
+    ctx.arc(340, 60, 15, 0, Math.PI * 2);
+    ctx.fill();
+    
+    const alturaPasto = 80;
+    ctx.fillStyle = '#7CB342';
+    ctx.fillRect(0, height - alturaPasto, width, alturaPasto);
+    
+    const coloresFlores = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEB'];
+    
+    const numFlores = 12;
+    const espacioEntreFlores = width / (numFlores + 1);
+    
+    for (let i = 1; i <= numFlores; i++) {
+        const x = i * espacioEntreFlores;
+        const y = height - alturaPasto / 2 + (Math.random() * 10 - 5);
+        const color = coloresFlores[i % coloresFlores.length];
+        dibujarFlor(ctx, x, y, color);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    crearConfeti();
-    reproducirAutomaticamente();
+function dibujarFlor(ctx, x, y, color) {
+    const alturaTallo = 50;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x, y + alturaTallo);
+    ctx.strokeStyle = '#2E7D32';
+    ctx.lineWidth = 3;
+    ctx.stroke();
     
-    const elementos = document.querySelectorAll('.animado');
+    ctx.beginPath();
+    ctx.ellipse(x - 8, y + 15, 6, 3, Math.PI / 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#66BB6A';
+    ctx.fill();
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-            }
-        });
-    }, { threshold: 0.1 });
+    ctx.beginPath();
+    ctx.ellipse(x + 8, y + 25, 6, 3, -Math.PI / 4, 0, Math.PI * 2);
+    ctx.fill();
     
-    elementos.forEach(el => {
-        el.style.opacity = 0;
-        el.style.transition = 'opacity 0.5s ease-in-out';
-        observer.observe(el);
-    });
-});
+    const numPetals = 6;
+    const radius = 15;
+    
+    for (let i = 0; i < numPetals; i++) {
+        const angle = (i * 2 * Math.PI) / numPetals;
+        const petalX = x + radius * Math.cos(angle);
+        const petalY = y + radius * Math.sin(angle);
+        
+        ctx.beginPath();
+        ctx.arc(petalX, petalY, 10, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    
+    ctx.beginPath();
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
+    ctx.fillStyle = '#FFD700';
+    ctx.fill();
+}
 
 //Dios, Assembly y la Patria
 /*Edrem*/
