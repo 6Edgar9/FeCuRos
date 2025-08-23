@@ -170,13 +170,11 @@ h2 {
     font-size: 2.2rem;
 }
 
-/* Mensaje */
 .mensaje {
     text-align: center;
     font-size: 1.2rem;
 }
 
-/* Poema */
 .poema {
     background: linear-gradient(135deg, #f4eefa 0%, #fce4e5 100%);
     padding: 30px;
@@ -281,7 +279,6 @@ footer {
     border-radius: 15px;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
