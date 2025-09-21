@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #D6C6E6, #9ED0EA);
+    color: #5a5a5a;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.music-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D6C6E6 0%, #F5AFB0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    border: 2px solid white;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+}
+
+.music-list {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.music-list.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.music-list h3 {
+    color: #9B6EE0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.song {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.song:hover {
+    background: #f9f9f9;
+}
+
+.song i {
+    margin-right: 10px;
+    color: #9B6EE0;
+}
+
+.audio-player {
+    display: none;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #9B6EE0 0%, #F5AFB0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: #6a6a6a;
+}
+
+.age-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #D6C6E6 0%, #F5AFB0 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.flores {
+    position: absolute;
+    width: 100px;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.flor1 {
+    top: 20px;
+    left: 50px;
+    transform: rotate(-20deg);
+}
+
+.flor2 {
+    bottom: 20px;
+    right: 50px;
+    transform: rotate(15deg);
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    background: linear-gradient(135deg, #9B6EE0 0%, #F5AFB0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.mensaje {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.poema {
+    background: linear-gradient(135deg, #f4eefa 0%, #fce4e5 100%);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #9B6EE0;
+    font-style: italic;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+.poema p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.seccion-totoro {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.seccion-totoro h2 {
+    background: linear-gradient(135deg, #9B6EE0 0%, #F5AFB0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.contenedor-totoro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.imagen-totoro {
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.canvas-flores {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.susuwatari {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+    opacity: 0.8;
+    animation: flotar 6s infinite ease-in-out;
+}
+
+.susuwatari-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.susuwatari-2 {
+    top: 40%;
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+.susuwatari-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 3s;
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #D6C6E6 0%, #F5AFB0 100%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.invitacion {
+    text-align: center;
+    background: linear-gradient(135deg, #D6C6E6 0%, #F5AFB0 100%);
+    color: white;
+}
+
+.invitacion h2 {
+    color: white;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+}
+
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: #9B6EE0;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    color: #6a6a6a;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animado {
+    animation: fadeIn 1s ease-in;
+}
+
+.flotante {
+    animation: float 5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    header p {
+        font-size: 1.1rem;
+    }
+    
+    section {
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .item {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .music-menu {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .music-list {
+        width: 200px;
+        right: -20px;
+    }
+    
+    .poema {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
+    .contenedor-totoro {
+        flex-direction: column;
+    }
+    
+    .imagen-totoro {
+        max-width: 250px;
+    }
+    
+    .canvas-flores {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .susuwatari {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 40px 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .age-badge {
+        font-size: 1rem;
+        padding: 6px 15px;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .music-list {
+        width: 180px;
+        right: -30px;
+    }
+}
+
+/* Dios, Assembly y la Patria */
+/*Edrem*/

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Rosita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="music-menu">
+        <div class="music-toggle" id="musicToggle">
+            <i class="fas fa-music" style="color: white; font-size: 1.5rem;"></i>
+        </div>
+        <div class="music-list" id="musicList">
+            <h3>Playlist Especial</h3>
+            <div class="song" onclick="playSong('musica/totoro.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>Tonari no Totoro - Joe Hisaishi</span>
+            </div>
+            <div class="song" onclick="playSong('musica/HowlsMovingCastleTheme.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>Howl's Moving Castle - Grissini Project</span>
+            </div>
+            <div class="song" onclick="playSong('musica/laVieEnRose.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>La Vie en Rose - Emily Watts</span>
+            </div>
+            <div class="song" onclick="playSong('musica/springDay.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>Spring Day - BTS</span>
+            </div>
+            <div class="song" onclick="playSong('musica/Euphoria.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>Euphoria - BTS</span>
+            </div>
+            <div class="song" onclick="playSong('musica/HappyBirthday.mp3', this)">
+                <i class="fas fa-play-circle"></i>
+                <span>Happy Birthday Jazz</span>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="audioPlayer" class="audio-player" controls></audio>
+    
+    <div class="container">
+        <header>
+            <h1>¡Feliz Cumpleaños Rosita!</h1>
+            <p>Celebrando la maravillosa persona que eres</p>
+            <div class="age-badge">¡19 Años!</div>
+            <svg class="flores flor1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 20 C60 10 80 15 80 30 C90 20 85 40 70 40 C80 50 60 55 50 45 C40 55 20 50 30 40 C15 40 10 20 20 30 C20 15 40 10 50 20 Z" fill="#9B6EE0"/>
+            </svg>
+            <svg class="flores flor2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 20 C60 10 80 15 80 30 C90 20 85 40 70 40 C80 50 60 55 50 45 C40 55 20 50 30 40 C15 40 10 20 20 30 C20 15 40 10 50 20 Z" fill="#F5AFB0"/>
+            </svg>
+        </header>
+        
+        <section class="mensaje animado">
+            <h2>Para una persona extraordinaria</h2>
+            <p>Rosita, en este día tan especial quiero desearte un feliz cumpleaños lleno de alegría, amor y todas las cosas buenas que te mereces.</p>
+            <p>Eres una persona increíblemente especial, con una fuerza y determinación que admiro profundamente. Tu manera de ver la vida y tu claridad sobre lo que quieres son cualidades que te hacen única.</p>
+            
+            <div class="poema">
+                <p>"No me pertenece la luz ni el aire,</p>
+                <p>ni la tierra ni el fuego me pertenece,</p>
+                <p>ni mi casa ni mi sombra me pertenece,</p>
+                <p>ni mi barco ni mi puerto me pertenece.</p>
+                <p>¿De qué entonces soy dueño? ¿De qué puedo</p>
+                <p>disponer libremente, sin restricciones?</p>
+                <p>¿De qué soy dueño? ¿De mi dolor acaso?</p>
+                <br>
+                <p>Mis sueños, tal vez, que si no los sueño</p>
+                <p>dejen de existir. Mis esperanzas, que si</p>
+                <p>no las espero dejen de latir.</p>
+                <p>Y el cariño que te tengo, que si no</p>
+                <p>te lo doy, se me convierte</p>
+                <p>en humo, en nada, en polvo."</p>
+            </div>
+            
+            <p>Este poema refleja cómo a veces las cosas más valiosas son aquellas que compartimos con los demás. Espero que tu día esté lleno de momentos especiales y que este nuevo año de vida te traiga mucha felicidad.</p>
+        </section>
+        
+        <section class="animado">
+            <h2>Tu regalo especial</h2>
+            <p>Sé que eres fan de BTS y que tienes una colección casi completa de peluches de BT21. Por eso, quería completarla con este regalo que espero te guste:</p>
+            
+            <div class="flotante" style="text-align: center; margin: 30px 0;">
+                <i class="fas fa-gift" style="font-size: 5rem; color: #9B6EE0;"></i>
+                <p style="margin-top: 15px; font-weight: bold;">Peluche BT21 que te faltaba</p>
+            </div>
+            
+            <p>Cada vez que lo veas, espero que te recuerde lo especial que eres y que hay alguien que valora cada detalle de tu personalidad.</p>
+        </section>
+        
+        <section class="seccion-totoro animado">
+            <h2>Un detalle de Studio Ghibli</h2>
+            <p>Como sé que te encanta Studio Ghibli, quería regalarte estas flores digitales junto a Totoro.</p>
+            
+            <div class="contenedor-totoro">
+                <img src="img/totoro.png" alt="Totoro" class="imagen-totoro">
+                <canvas id="floresCanvas" class="canvas-flores" width="500" height="400"></canvas>
+            </div>
+            
+            <p>Espero que te guste este pequeño detalle. ¡Las flores nunca mueren en el mundo digital!</p>
+        </section>
+        
+        <section class="animado">
+            <h2>Razones por las que eres increíble</h2>
+            <div class="galeria">
+                <div class="item">
+                    <i class="fas fa-brain"></i>
+                    <p>Tu mentalidad madura</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-paw"></i>
+                    <p>Tu amor por los animales</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-plane"></i>
+                    <p>Tu espíritu aventurero</p>
+                </div>
+                <div class="item">
+                    <i class="fas fa-heart"></i>
+                    <p>Tu corazón auténtico</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="invitacion animado">
+            <h2>Mi deseo para tu día</h2>
+            <p>Que este nuevo año de vida esté lleno de experiencias maravillosas, crecimiento personal y mucha felicidad.</p>
+            <p>Eres una persona increíble y mereces todo lo mejor que la vida puede ofrecer.</p>
+            <button class="btn" onclick="enviarWhatsApp()">¡Celebremos juntos!</button>
+        </section>
+        
+        <footer>
+            <p>Hecho con cariño para Rosita en su 19° cumpleaños · 30 de agosto</p>
+            <p>Por alguien que siempre te apreciará</p>
+        </footer>
+    </div>
+
+    <img src="img/Susuwataris.png" class="susuwatari susuwatari-1" alt="Susuwatari">
+    <img src="img/Susuwataris.png" class="susuwatari susuwatari-2" alt="Susuwatari">
+    <img src="img/Susuwataris.png" class="susuwatari susuwatari-3" alt="Susuwatari">
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!--Dios, Assembly y la Patria-->
+<!--Edrem-->
